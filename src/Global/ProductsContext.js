@@ -10,12 +10,12 @@ export const ProductsContext = createContext();
 
 const ProductsContextProvider = (props) =>{
     const [products] = useState([
-        {id:1 , name : 'shoe1' , price: '$15' , image: shoe1 , status: 'hot' },
-        {id:2 , name : 'shoe2' , price: '$15' , image: shoe2 , status: 'hot' },
-        {id:3 , name : 'shoe3' , price: '$15' , image: shoe3 , status: 'hot' },
-        {id:4 , name : 'iphoneX' , price: '$59' , image: iphoneX , status: 'hot' },
-        {id:5 , name : 'iphone13' , price: '$199' , image: iphone13 , status: 'hot' },
-        {id:6 , name : 'earphones' , price: '$19' , image: earphones , status: 'hot' }
+        {id:1 , name : 'shoe1' , price: 15 , image: shoe1 , status: 'hot' },
+        {id:2 , name : 'shoe2' , price: 15 , image: shoe2 , status: 'hot' },
+        {id:3 , name : 'shoe3' , price: 15 , image: shoe3 , status: 'hot' },
+        {id:4 , name : 'iphoneX' , price: 59 , image: iphoneX , status: 'hot' },
+        {id:5 , name : 'iphone13' , price: 199 , image: iphone13 , status: 'hot' },
+        {id:6 , name : 'earphones' , price: 19 , image: earphones , status: 'hot' }
         
     ]);
     return(
