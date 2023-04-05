@@ -24,6 +24,39 @@ export const CartReducer = (state , action) =>{
                 }
             }
             break;
+
+            case 'INC':
+                product = action.cart;
+                product.qty = product.qty +1;
+                updatedPrice = totalPrice +product.price;
+                updatedQty = qty+product.qty;
+                index = shoppingCart.findIndex(cart => cart.id === action.id);
+                shoppingCart[index] = product;
+                return {shoppingCart: [...shoppingCart],totalPrice : updatedPrice , qty: updatedQty}
+                break;
+
+                case'DEC':
+                product = action.cart;
+                if(product.qty > 1){
+                    product.qty = product.qty -1;
+                    updatedPrice = totalPrice -product.price;
+                    updatedQty = qty-product.qty;
+                   index = shoppingCart.findIndex(
+                     (cart) => cart.id === action.id
+                   );
+                   shoppingCart[index] = product;
+                    return {
+                      shoppingCart: [...shoppingCart],
+                      totalPrice: updatedPrice,
+                      qty: updatedQty,
+                    };
+                }
+                else{
+                    return state;
+                }
+
+
+
             default:
                 return state;
 
