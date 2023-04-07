@@ -29,7 +29,7 @@ export const CartReducer = (state , action) =>{
                 product = action.cart;
                 product.qty = product.qty +1;
                 updatedPrice = totalPrice +product.price;
-                updatedQty = qty+product.qty;
+                updatedQty = qty+1;
                 index = shoppingCart.findIndex(cart => cart.id === action.id);
                 shoppingCart[index] = product;
                 return {shoppingCart: [...shoppingCart],totalPrice : updatedPrice , qty: updatedQty}
@@ -40,7 +40,7 @@ export const CartReducer = (state , action) =>{
                 if(product.qty > 1){
                     product.qty = product.qty -1;
                     updatedPrice = totalPrice -product.price;
-                    updatedQty = qty-product.qty;
+                    updatedQty = qty-1;
                    index = shoppingCart.findIndex(
                      (cart) => cart.id === action.id
                    );
@@ -49,11 +49,23 @@ export const CartReducer = (state , action) =>{
                       shoppingCart: [...shoppingCart],
                       totalPrice: updatedPrice,
                       qty: updatedQty,
-                    };
+                    };      
                 }
                 else{
                     return state;
                 }
+                break;
+
+                case 'DEL':
+                    const filtered = shoppingCart.filter(product => product.id !== action.id )
+                        product = action.cart;
+                        updatedQty = qty - product.qty;
+                        updatedPrice = totalPrice - product.price*product.qty;
+                        return{shoppingCart : [...filtered] , totalPrice:updatedPrice , qty:updatedQty}
+                        break;
+
+
+
 
 
 

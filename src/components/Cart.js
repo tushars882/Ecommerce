@@ -24,7 +24,7 @@ export default function Cart() {
                   <i class="fa-solid fa-minus"></i>
                 </span>
                 <span className="product-total-price">${cart.price*cart.qty}.00</span>
-                <span className="delete-product">
+                <span className="delete-product" onClick={()=> dispatch({type :'DEL' , id : cart.id , cart})}>
                   <i class="fa-solid fa-trash"></i>
                 </span>
               </div>
